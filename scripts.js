@@ -1,35 +1,36 @@
-let photo1 = {
+let imagesData = [
+{
     photo: 'images/DSC_0086.jpg',
     title: 'San Francisco',
     description: 'The beautiful Golden Gate bridage'
-};
+},
 
-let photo2 = {
+{
     photo: 'images/DSC_0131.jpg',
     title: 'San Francisco',
     description: 'During our 16 days trip we have visited San Franscisco. This picture was taken on the beach.'
-};
+},
 
-let photo3 = {
+{
     photo: 'images/DSC_0140.jpg',
     title: 'Muir Woods',
     description: 'North from San Francisco there is an ancient forest called Moir Woods'
-};
+},
 
-let photo4 = {
+{
     photo: 'images/DSC_0235.jpg',
     title: 'San Francisco - Japan garaden.',
     description: 'There are a lot of beautiful parks in San Francisco. One of my favorite was this Japan style garden.'
-};
+},
 
-let photo5 = {
+{
     photo: 'images/DSC_0378.jpg',
     title: 'Universal Studios - Hogwarts School of Witchcraft and Wizardry',
     description: 'One of the best stop durign our trip was Universal Studios. We had a wonderful day here. I wish we could go back sometime.'
-};
+}]
 
 let currentPhoto = 0;
-let imagesData = [photo1, photo2, photo3, photo4, photo5]
+// let imagesData = [photo1, photo2, photo3, photo4, photo5]
 
 let loadPhoto = (currentPhoto) => {
     $('#photo').attr('src', imagesData[currentPhoto].photo);
