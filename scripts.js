@@ -1,31 +1,31 @@
 let photo1 = {
     photo: 'images/DSC_0086.jpg',
-    title: 'My title',
-    description: 'What happened here, why is this a very nice image'
+    title: 'San Francisco',
+    description: 'The beautiful Golden Gate bridage'
 };
 
 let photo2 = {
     photo: 'images/DSC_0131.jpg',
-    title: 'My title for photo number 2',
-    description: 'What happened here, why is this a very nice image'
+    title: 'San Francisco',
+    description: 'During our 16 days trip we have visited San Franscisco. This picture was taken on the beach.'
 };
 
 let photo3 = {
     photo: 'images/DSC_0140.jpg',
-    title: 'My title for the third photo',
-    description: 'What happened here, why is this a very nice image'
+    title: 'Muir Woods',
+    description: 'North from San Francisco there is an ancient forest called Moir Woods'
 };
 
 let photo4 = {
     photo: 'images/DSC_0235.jpg',
-    title: 'My title for the 4th photo in the array',
-    description: 'What happened here, why is this a very nice image'
+    title: 'San Francisco - Japan garaden.',
+    description: 'There are a lot of beautiful parks in San Francisco. One of my favorite was this Japan style garden.'
 };
 
 let photo5 = {
     photo: 'images/DSC_0378.jpg',
-    title: 'My title for the last photo',
-    description: 'What happened here, why is this a very nice image'
+    title: 'Universal Studios - Hogwarts School of Witchcraft and Wizardry',
+    description: 'One of the best stop durign our trip was Universal Studios. We had a wonderful day here. I wish we could go back sometime.'
 };
 
 let currentPhoto = 0;
@@ -35,24 +35,26 @@ let loadPhoto = (currentPhoto) => {
     $('#photo').attr('src', imagesData[currentPhoto].photo);
     $('#photo-title').text(imagesData[currentPhoto].title);
     $('#photo-description').text(imagesData[currentPhoto].description);
+    $(`.thumbnail`).css('box-shadow', '0px 15px 10px -15px #111').css('height', '60px').css('width', '60px');
+    $(`.thumbnail[data-index=${currentPhoto}]`).css('box-shadow', '0px 15px 10px -10px #111').css('height', '70px').css('width', '70px');
 }
-
-loadPhoto(currentPhoto);
 
 $('.right').click(() => {
     if (currentPhoto < imagesData.length - 1) {
         currentPhoto++;
+    } else {
+        currentPhoto = 0;
     }
     loadPhoto(currentPhoto);
-    console.log(currentPhoto);
 });
 
 $('.left').click(() => {
     if (currentPhoto > 0) {
         currentPhoto--;
+    } else {
+        currentPhoto = imagesData.length - 1;
     }
     loadPhoto(currentPhoto);
-    console.log(currentPhoto);
 });
 
 imagesData.forEach((item, index) => {
@@ -64,3 +66,5 @@ imagesData.forEach((item, index) => {
         loadPhoto(currentPhoto);
     })
 });
+
+loadPhoto(currentPhoto);
